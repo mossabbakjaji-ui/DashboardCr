@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>لوحة إدارة السجلات التجارية</title>
+<style>
+:root{--navy:#142b4a;--blue:#2459a9;--teal:#0e9f91;--bg:#f3f6fb;--ink:#182538;--muted:#718096;--line:#e2e8f0;--white:#fff;--red:#c2413b;--amber:#b7791f;--green:#16805d;--shadow:0 8px 28px #1831530c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,Arial,sans-serif;font-size:14px}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font-weight:700;transition:.15s}button:hover{filter:brightness(.96);transform:translateY(-1px)}.primary{background:var(--blue);color:white}.secondary{background:#eaf0fa;color:var(--navy)}.success{background:#e4f6ef;color:#087752}.danger{background:#fff0ef;color:#b42318}.outline{background:white;border:1px solid var(--line);color:var(--ink)}.shell{max-width:1500px;margin:auto;padding:24px}.hero{background:linear-gradient(115deg,#142b4a,#2459a9 72%,#188f94);color:#fff;border-radius:22px;padding:26px 28px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}.hero h1{margin:0 0 9px;font-size:26px}.hero p{margin:0;color:#dbeafe}.hero-actions{display:flex;gap:8px;flex-wrap:wrap}.hero .outline{background:#ffffff18;color:#fff;border-color:#ffffff44}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0}.stat,.panel{background:white;border:1px solid var(--line);border-radius:17px;box-shadow:var(--shadow)}.stat{padding:18px;display:flex;align-items:center;gap:14px}.stat-icon{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-size:22px;background:#edf3ff}.stat small{display:block;color:var(--muted);margin-bottom:6px}.stat strong{font-size:25px}.panel{padding:18px;margin-bottom:18px}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}.panel h2{font-size:17px;margin:0}.filters{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:10px}.field{display:flex;flex-direction:column;gap:6px;min-width:0}.field label{font-size:12px;font-weight:700;color:#566579}.field input,.field select,.field textarea{width:100%;border:1px solid #d7dfeb;background:#fff;border-radius:9px;padding:10px 11px;outline:none;color:var(--ink)}.field input:focus,.field select:focus,.field textarea:focus{border-color:#6995da;box-shadow:0 0 0 3px #2459a915}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px}table{border-collapse:collapse;width:100%;min-width:1120px;background:#fff}th,td{padding:13px 12px;text-align:right;border-bottom:1px solid #edf0f5;vertical-align:top}th{background:#f7f9fc;color:#566579;font-size:12px;white-space:nowrap;position:sticky;top:0}tbody tr:hover{background:#fafcff}tbody tr:last-child td{border-bottom:0}.company{font-weight:700;color:var(--navy);min-width:190px}.number{font-weight:700;letter-spacing:.2px;white-space:nowrap}.pill{display:inline-flex;align-items:center;border-radius:30px;padding:5px 9px;font-size:11px;font-weight:700;white-space:nowrap}.active{background:#e2f7ed;color:#087752}.suspended{background:#fff0ed;color:#b42318}.soon{background:#fff2d7;color:#975a00}.neutral{background:#eef2f7;color:#536174}.action-row{display:flex;gap:6px}.mini{padding:7px 9px;border-radius:8px;font-size:12px}.notes{max-width:230px;line-height:1.8;color:#526176}.alert-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.alert{border:1px solid #f1d39a;background:#fffaf0;border-radius:12px;padding:13px;display:flex;justify-content:space-between;gap:12px}.alert b{display:block;margin-bottom:5px}.muted{color:var(--muted)}.empty{padding:28px;text-align:center;color:var(--muted)}.footer-note{font-size:12px;color:var(--muted);line-height:1.8}.modal-back{position:fixed;inset:0;background:#0b193b88;display:none;align-items:center;justify-content:center;padding:16px;z-index:20}.modal-back.show{display:flex}.modal{background:#fff;border-radius:18px;width:min(900px,100%);max-height:92vh;overflow:auto;box-shadow:0 20px 80px #0003}.modal-head{padding:18px 22px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:white;z-index:2}.modal-head h2{margin:0;font-size:18px}.modal-body{padding:22px}.form-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.span2{grid-column:span 2}.full{grid-column:1/-1}.modal-foot{display:flex;gap:8px;justify-content:flex-start;padding:16px 22px;border-top:1px solid var(--line);position:sticky;bottom:0;background:white}.files-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.file-chip{display:flex;gap:8px;align-items:center;background:#f0f5fb;border:1px solid #dbe5f2;border-radius:9px;padding:7px 9px;font-size:12px}.file-chip button{padding:2px 5px;background:transparent;color:#b42318}.hidden{display:none!important}.toast{position:fixed;bottom:20px;left:20px;background:#132b49;color:white;padding:12px 18px;border-radius:12px;box-shadow:var(--shadow);z-index:40;display:none}.toast.show{display:block}.sort{cursor:pointer;user-select:none}.sort span{color:#96a4b8;margin-right:5px}.small{font-size:12px}.reminder-banner{border:1px solid #f3d19b;background:#fff8e9;border-radius:13px;padding:14px 16px;margin-bottom:18px;display:flex;gap:10px;align-items:flex-start}.reminder-banner strong{color:#8a4b00}@media(max-width:950px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.filters{grid-template-columns:repeat(2,minmax(0,1fr))}.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.shell{padding:12px}.hero{padding:20px}.hero h1{font-size:21px}.stats{gap:8px}.stat{padding:12px;gap:9px}.stat strong{font-size:21px}.filters,.form-grid,.alert-list{grid-template-columns:1fr}.span2{grid-column:auto}.hero-actions button{flex:1}.panel{padding:12px}}@media print{body{background:white}.shell{max-width:none;padding:0}.hero{background:white!important;color:#111;box-shadow:none;border:1px solid #ccc}.hero p{color:#333}.hero-actions,.filters,.action-col,.no-print,.modal-back,.toast{display:none!important}.stat,.panel{box-shadow:none;break-inside:avoid}.stats{grid-template-columns:repeat(4,1fr)}.table-wrap{overflow:visible}table{min-width:0;font-size:10px}th,td{padding:6px 5px}.company{min-width:0}.notes{max-width:none}.panel{border:1px solid #ccc}}
+</style>
+</head>
+<body>
+<div class="shell">
+<header class="hero">
+ <div><h1>إدارة السجلات التجارية</h1><p>لوحة موحّدة لمتابعة بيانات المنشآت والتأكيد السنوي والمتطلبات والملفات</p></div>
+ <div class="hero-actions no-print">
+  <button class="outline" onclick="window.print()">▤ طباعة التقرير</button>
+  <button class="outline" onclick="exportData()">⇩ تصدير نسخة احتياطية</button>
+  <button class="outline" onclick="document.getElementById('importFile').click()">⇧ استيراد نسخة</button>
+  <button class="primary" style="background:#fff;color:#17365e" onclick="openNew()">＋ إضافة سجل</button>
+  <input id="importFile" class="hidden" type="file" accept=".json,application/json" onchange="importData(event)">
+ </div>
+</header>
+<div id="reminderBanner"></div>
+<section class="stats">
+ <div class="stat"><div class="stat-icon">▤</div><div><small>إجمالي السجلات</small><strong id="totalCount">8</strong></div></div>
+ <div class="stat"><div class="stat-icon" style="background:#e3f8ef">✓</div><div><small>السجلات النشطة</small><strong id="activeCount">6</strong></div></div>
+ <div class="stat"><div class="stat-icon" style="background:#fff0ed">!</div><div><small>السجلات المعلّقة</small><strong id="suspendedCount">2</strong></div></div>
+ <div class="stat"><div class="stat-icon" style="background:#fff2d7">◷</div><div><small>تأكيد سنوي خلال 30 يومًا</small><strong id="dueCount">0</strong></div></div>
+</section>
+<section class="panel">
+ <div class="panel-head"><h2>🔔 التنبيهات القادمة</h2><span class="muted small">تذكير قبل تاريخ التأكيد السنوي بـ 30 يومًا</span></div>
+ <div id="alerts" class="alert-list"></div>
+</section>
+<section class="panel">
+ <div class="panel-head"><h2>السجلات التجارية</h2><span id="resultCount" class="muted small"></span></div>
+ <div class="filters no-print" style="margin-bottom:14px">
+  <div class="field"><label for="search">بحث عام</label><input id="search" placeholder="اسم الشركة أو الرقم الموحد..." oninput="renderTable()"></div>
+  <div class="field"><label for="statusFilter">حالة السجل</label><select id="statusFilter" onchange="renderTable()"><option value="">كل الحالات</option><option>نشط</option><option>معلق</option><option>نشط - ضمن فترة التأكيد السنوي</option></select></div>
+  <div class="field"><label for="entityFilter">نوع الشركة</label><select id="entityFilter" onchange="renderTable()"><option value="">كل الأنواع</option><option>ذات مسؤولية محدودة</option></select></div>
+  <div class="field"><label for="dueFilter">موعد التأكيد</label><select id="dueFilter" onchange="renderTable()"><option value="">كل المواعيد</option><option value="soon">خلال 30 يومًا</option><option value="overdue">متأخر</option><option value="later">بعد أكثر من 30 يومًا</option></select></div>
+  <button class="secondary" onclick="resetFilters()" style="align-self:end">مسح الفلاتر</button>
+ </div>
+ <div class="table-wrap"><table><thead><tr>
+  <th class="sort" onclick="sortBy('name')">اسم الشركة <span>↕</span></th>
+  <th class="sort" onclick="sortBy('unified')">الرقم الوطني الموحد <span>↕</span></th>
+  <th>صفة الشركة</th><th>نوع الشركة</th><th>حالة السجل</th>
+  <th class="sort" onclick="sortBy('registrationDate')">تاريخ القيد <span>↕</span></th>
+  <th class="sort" onclick="sortBy('expiryDate')">تاريخ التأكيد / الانتهاء <span>↕</span></th>
+  <th>الملاحظات والمتطلبات</th><th>الملفات</th><th class="action-col">الإجراءات</th>
+ </tr></thead><tbody id="recordsBody"></tbody></table></div>
+ <p class="footer-note">ملاحظة: تاريخ انتهاء السجل في هذه اللوحة هو تاريخ التأكيد السنوي كما أوضحت. التواريخ الأولية مدخلة وفق البيانات التي أرسلتها، ويمكن تعديلها عند الحاجة. حذف السجل نهائي من بيانات هذه اللوحة بعد التأكيد.</p>
+</section>
+<section class="panel">
+ <div class="panel-head"><h2>💾 حفظ البيانات والنسخ الاحتياطي</h2></div>
+ <p class="footer-note">تُحفظ التعديلات تلقائيًا داخل المتصفح على هذا الجهاز. استخدم «تصدير نسخة احتياطية» بانتظام لنقل البيانات إلى جهاز آخر أو للاحتفاظ بنسخة. الملفات المرفوعة تُحفظ ضمن بيانات المتصفح؛ قد تستهلك مساحة كبيرة بحسب حجم الملفات. لا تُعد هذه النسخة نظامًا سحابيًا مشتركًا بين عدة مستخدمين.</p>
+</section>
+</div>
+<div class="modal-back" id="modalBack" role="dialog" aria-modal="true">
+ <div class="modal">
+  <div class="modal-head"><h2 id="modalTitle">إضافة سجل تجاري</h2><button class="outline" onclick="closeModal()">✕ إغلاق</button></div>
+  <form id="recordForm" onsubmit="saveRecord(event)">
+   <div class="modal-body"><input type="hidden" id="recordId">
+    <div class="form-grid">
+     <div class="field span2"><label>اسم الشركة *</label><input id="name" required></div>
+     <div class="field"><label>الرقم الوطني الموحد *</label><input id="unified" required inputmode="numeric"></div>
+     <div class="field"><label>نوع الكيان</label><input id="entityType" value="شركة"></div>
+     <div class="field"><label>نوع الشركة</label><input id="companyType" value="ذات مسؤولية محدودة"></div>
+     <div class="field"><label>صفة الشركة</label><input id="companyRole" placeholder="مثال: مهنية"></div>
+     <div class="field"><label>صفة المستخدم في السجل</label><input id="userRole" placeholder="مثال: شريك برأس المال و مدير"></div>
+     <div class="field"><label>نوع السجل</label><input id="recordType" value="سجل رئيسي"></div>
+     <div class="field"><label>حالة السجل *</label><select id="status" required><option>نشط</option><option>نشط - ضمن فترة التأكيد السنوي</option><option>معلق</option></select></div>
+     <div class="field"><label>تاريخ قيد السجل *</label><input id="registrationDate" type="date" required></div>
+     <div class="field"><label>تاريخ التأكيد السنوي / الانتهاء *</label><input id="expiryDate" type="date" required></div>
+     <div class="field full"><label>الملاحظات والمتطلبات المطلوب تنفيذها</label><textarea id="notes" rows="3" placeholder="أدخل المتطلبات أو الإجراءات اللازمة لهذا السجل..."></textarea></div>
+     <div class="field full"><label>رفع ملفات مرتبطة بالسجل</label><input id="fileInput" type="file" multiple><div class="files-list" id="existingFiles"></div><p class="footer-note">يمكن رفع ملفات PDF أو صور أو مستندات. احتفظ بنسخة احتياطية بعد إضافة ملفات مهمة.</p></div>
+    </div>
+   </div>
+   <div class="modal-foot"><button class="primary" type="submit">حفظ السجل</button><button class="outline" type="button" onclick="closeModal()">إلغاء</button></div>
+  </form>
+ </div>
+</div>
+<div id="toast" class="toast"></div>
+<script>
+const seed = [
+{id:"r1",name:"شركة خالد حمود البلوي",unified:"7049771194",entityType:"شركة",companyType:"ذات مسؤولية محدودة",companyRole:"مهنية",userRole:"شريك برأس المال و مدير",recordType:"سجل رئيسي",status:"نشط",registrationDate:"2025-04-15",expiryDate:"2027-04-14",notes:"",files:[]},
+{id:"r2",name:"شركة سايبرماس المحدودة",unified:"7054476424",entityType:"شركة",companyType:"ذات مسؤولية محدودة",companyRole:"",userRole:"",recordType:"سجل رئيسي",status:"نشط",registrationDate:"2026-06-03",expiryDate:"2027-06-02",notes:"",files:[]},
+{id:"r3",name:"شركة ميج العقارية",unified:"7021602490",entityType:"شركة",companyType:"ذات مسؤولية محدودة",companyRole:"",userRole:"شريك برأس المال و مدير",recordType:"سجل رئيسي",status:"نشط",registrationDate:"2021-02-18",expiryDate:"2027-01-06",notes:"",files:[]},
+{id:"r4",name:"شركة فوديفا",unified:"7053554338",entityType:"شركة",companyType:"ذات مسؤولية محدودة",companyRole:"",userRole:"شريك برأس المال و مدير",recordType:"سجل رئيسي",status:"نشط",registrationDate:"2026-01-29",expiryDate:"2027-01-28",notes:"",files:[]},
+{id:"r5",name:"شركة ميج العقارية",unified:"7035735757",entityType:"شركة",companyType:"ذات مسؤولية محدودة",companyRole:"",userRole:"شريك برأس المال و مدير",recordType:"سجل رئيسي",status:"نشط",registrationDate:"2024-05-11",expiryDate:"2027-05-01",notes:"",files:[]},
+{id:"r6",name:"شركة بوابة الحديد للتجارة والصناعة والمقاولات",unified:"7010453954",entityType:"شركة",companyType:"ذات مسؤولية محدودة",companyRole:"",userRole:"شريك برأس المال و مدير",recordType:"سجل رئيسي",status:"معلق",registrationDate:"2015-10-26",expiryDate:"2025-11-20",notes:"السجل معلّق؛ مراجعة سبب التعليق والإجراءات اللازمة لإعادة التفعيل.",files:[]},
+{id:"r7",name:"شركة بوابة الحديد المحدودة",unified:"7014063627",entityType:"شركة",companyType:"ذات مسؤولية محدودة",companyRole:"",userRole:"شريك برأس المال و مدير",recordType:"سجل رئيسي",status:"نشط - ضمن فترة التأكيد السنوي",registrationDate:"2014-05-28",expiryDate:"2026-10-28",notes:"يتطلب التأكيد السنوي للسجل التجاري.\nيتطلب التأكيد السنوي لبيانات المستفيد الحقيقي.",files:[]},
+{id:"r8",name:"شركة المقصد للصيانة والنظافة المحدودة",unified:"7009430450",entityType:"شركة",companyType:"ذات مسؤولية محدودة",companyRole:"",userRole:"شريك برأس المال و مدير",recordType:"سجل رئيسي",status:"معلق",registrationDate:"2016-01-14",expiryDate:"2025-04-03",notes:"يتطلب التأكيد السنوي لبيانات المستفيد الحقيقي.\nيتطلب رفع التعليق.",files:[]}
+];
+let records = loadRecords(), sortState={key:"expiryDate",dir:1}, stagedFiles=[];
+function loadRecords(){try{let x=localStorage.getItem("tradeRecordsDashboard_v1");return x?JSON.parse(x):seed.map(x=>({...x}))}catch(e){return seed.map(x=>({...x}))}}
+function persist(){try{localStorage.setItem("tradeRecordsDashboard_v1",JSON.stringify(records));return true}catch(e){toast("تعذر حفظ البيانات محليًا؛ صدّر نسخة احتياطية واحذف الملفات الكبيرة.");return false}}
+function today(){let d=new Date();d.setHours(0,0,0,0);return d}
+function daysUntil(s){if(!s)return null;let d=new Date(s+"T00:00:00");return Math.ceil((d-today())/86400000)}
+function fmt(s){if(!s)return "—";let [y,m,d]=s.split("-");return `${d}/${m}/${y}`}
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function stateBadge(r){let d=daysUntil(r.expiryDate);if(d!==null&&d<0)return `<span class="pill suspended">منتهي منذ ${Math.abs(d)} يومًا</span>`;if(d!==null&&d<=30)return `<span class="pill soon">${escapeHtml(r.status)}</span>`;return r.status==="معلق"?'<span class="pill suspended">معلق</span>':r.status.includes("ضمن فترة")?'<span class="pill soon">ضمن فترة التأكيد</span>':'<span class="pill active">نشط</span>'}
+function render(){
+ document.getElementById("totalCount").textContent=records.length;
+ document.getElementById("activeCount").textContent=records.filter(r=>r.status!=="معلق").length;
+ document.getElementById("suspendedCount").textContent=records.filter(r=>r.status==="معلق").length;
+ document.getElementById("dueCount").textContent=records.filter(r=>{let d=daysUntil(r.expiryDate);return d!==null&&d>=0&&d<=30}).length;
+ renderAlerts();renderTable();
+}
+function renderAlerts(){
+ let arr=records.map(r=>({...r,days:daysUntil(r.expiryDate)})).filter(r=>r.days!==null&&r.days<=30).sort((a,b)=>a.days-b.days);
+ const banner=document.getElementById("reminderBanner");
+ banner.innerHTML=arr.some(r=>r.days>=0)?`<div class="reminder-banner"><span>⚠️</span><div><strong>تنبيه: يوجد ${arr.filter(r=>r.days>=0).length} سجل/سجلات يقترب موعد التأكيد السنوي لها خلال 30 يومًا.</strong><div class="small">يرجى مراجعة قسم التنبيهات أدناه واتخاذ الإجراء اللازم قبل تاريخ التأكيد.</div></div></div>`:"";
+ document.getElementById("alerts").innerHTML=arr.length?arr.map(r=>`<div class="alert" style="${r.days<0?'border-color:#f2b9b4;background:#fff5f4':''}"><div><b>${escapeHtml(r.name)}</b><span class="muted small">${escapeHtml(r.unified)} · تاريخ التأكيد: ${fmt(r.expiryDate)}</span></div><div style="text-align:left;white-space:nowrap"><span class="pill ${r.days<0?'suspended':'soon'}">${r.days<0?`متأخر ${Math.abs(r.days)} يومًا`:r.days===0?'اليوم':`بعد ${r.days} يومًا`}</span><div style="margin-top:7px"><button class="mini secondary" onclick="editRecord('${r.id}')">عرض / تعديل</button></div></div></div>`).join(""):'<div class="empty" style="grid-column:1/-1">لا توجد مواعيد تأكيد سنوي خلال 30 يومًا.</div>';
+}
+function renderTable(){
+ let q=document.getElementById("search").value.trim().toLowerCase(),s=document.getElementById("statusFilter").value,e=document.getElementById("entityFilter").value,due=document.getElementById("dueFilter").value;
+ let arr=records.filter(r=>[r.name,r.unified,r.companyRole,r.userRole,r.notes,r.status].join(" ").toLowerCase().includes(q)&&(!s||r.status===s)&&(!e||r.companyType===e));
+ arr=arr.filter(r=>{let d=daysUntil(r.expiryDate);if(due==="soon")return d!==null&&d>=0&&d<=30;if(due==="overdue")return d!==null&&d<0;if(due==="later")return d!==null&&d>30;return true});
+ arr.sort((a,b)=>String(a[sortState.key]||"").localeCompare(String(b[sortState.key]||""),"ar")*sortState.dir);
+ document.getElementById("resultCount").textContent=`عرض ${arr.length} من ${records.length} سجل`;
+ document.getElementById("recordsBody").innerHTML=arr.length?arr.map(r=>`<tr>
+ <td><div class="company">${escapeHtml(r.name)}</div><div class="muted small">${escapeHtml(r.recordType||"")}</div></td>
+ <td class="number">${escapeHtml(r.unified)}</td><td>${escapeHtml(r.companyRole||"—")}</td><td>${escapeHtml(r.companyType||"—")}</td><td>${stateBadge(r)}<div class="muted small" style="margin-top:5px">${escapeHtml(r.status)}</div></td>
+ <td>${fmt(r.registrationDate)}</td><td><b>${fmt(r.expiryDate)}</b><div class="muted small">${(()=>{let n=daysUntil(r.expiryDate);return n===null?"":n<0?`منتهي منذ ${-n} يومًا`:n===0?"موعده اليوم":`متبقي ${n} يومًا`})()}</div></td>
+ <td class="notes">${escapeHtml(r.notes||"—").replace(/\n/g,"<br>")}</td><td>${(r.files||[]).length?`<span class="pill neutral">${r.files.length} ملف</span>`:'<span class="muted small">لا توجد ملفات'}</span></td>
+ <td class="action-col"><div class="action-row"><button class="mini secondary" onclick="editRecord('${r.id}')">تعديل</button><button class="mini outline" onclick="printOne('${r.id}')">طباعة</button><button class="mini danger" onclick="deleteRecord('${r.id}')">حذف</button></div></td></tr>`).join(""):'<tr><td colspan="10" class="empty">لا توجد سجلات مطابقة لخيارات البحث والتصفية.</td></tr>';
+}
+function sortBy(k){sortState.dir=sortState.key===k?-sortState.dir:1;sortState.key=k;renderTable()}
+function resetFilters(){["search","statusFilter","entityFilter","dueFilter"].forEach(id=>document.getElementById(id).value="");renderTable()}
+function toast(s){let t=document.getElementById("toast");t.textContent=s;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2800)}
+function openNew(){document.getElementById("recordForm").reset();document.getElementById("recordId").value="";document.getElementById("modalTitle").textContent="إضافة سجل تجاري";document.getElementById("entityType").value="شركة";document.getElementById("companyType").value="ذات مسؤولية محدودة";document.getElementById("recordType").value="سجل رئيسي";document.getElementById("status").value="نشط";stagedFiles=[];renderFileChips([]);document.getElementById("modalBack").classList.add("show")}
+function editRecord(id){let r=records.find(x=>x.id===id);if(!r)return;document.getElementById("recordForm").reset();for(let k of ["id","name","unified","entityType","companyType","companyRole","userRole","recordType","status","registrationDate","expiryDate","notes"])document.getElementById(k==="id"?"recordId":k).value=k==="id"?r.id:(r[k]||"");document.getElementById("modalTitle").textContent="تعديل بيانات السجل";stagedFiles=(r.files||[]).map(f=>({...f}));renderFileChips(stagedFiles);document.getElementById("modalBack").classList.add("show")}
+function closeModal(){document.getElementById("modalBack").classList.remove("show")}
+function renderFileChips(files){document.getElementById("existingFiles").innerHTML=files.length?files.map((f,i)=>`<span class="file-chip">📎 ${escapeHtml(f.name)} <button type="button" title="إزالة الملف" onclick="removeStagedFile(${i})">✕</button></span>`).join(""):'<span class="muted small">لا توجد ملفات مرفقة</span>'}
+function removeStagedFile(i){stagedFiles.splice(i,1);renderFileChips(stagedFiles)}
+document.getElementById("fileInput").addEventListener("change",async e=>{for(const f of [...e.target.files]){if(f.size>3*1024*1024){toast("حجم الملف أكبر من 3 ميجابايت؛ لم تتم إضافته.");continue}let data=await new Promise((resolve,reject)=>{let rd=new FileReader();rd.onload=()=>resolve(rd.result);rd.onerror=reject;rd.readAsDataURL(f)});stagedFiles.push({name:f.name,type:f.type,size:f.size,data})}renderFileChips(stagedFiles);e.target.value=""});
+function saveRecord(ev){ev.preventDefault();let id=document.getElementById("recordId").value||("r"+Date.now());let r={id};for(let k of ["name","unified","entityType","companyType","companyRole","userRole","recordType","status","registrationDate","expiryDate","notes"])r[k]=document.getElementById(k).value.trim();r.files=stagedFiles;let idx=records.findIndex(x=>x.id===id);if(idx>=0)records[idx]=r;else records.push(r);persist();closeModal();render();toast("تم حفظ السجل")}
+function deleteRecord(id){let r=records.find(x=>x.id===id);if(!r)return;if(!confirm(`هل أنت متأكد من حذف سجل «${r.name}»؟ لا يمكن التراجع عن الحذف إلا باستعادة نسخة احتياطية.`))return;records=records.filter(x=>x.id!==id);persist();render();toast("تم حذف السجل")}
+function exportData(){let blob=new Blob([JSON.stringify({version:1,exportedAt:new Date().toISOString(),records},null,2)],{type:"application/json"});let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="نسخة-احتياطية-السجلات-التجارية.json";a.click();URL.revokeObjectURL(a.href);toast("تم تجهيز النسخة الاحتياطية")}
+function importData(ev){let f=ev.target.files[0];if(!f)return;let rd=new FileReader();rd.onload=()=>{try{let x=JSON.parse(rd.result),list=Array.isArray(x)?x:x.records;if(!Array.isArray(list))throw Error();if(!confirm("سيتم استبدال السجلات الحالية بالنسخة المستوردة. هل تريد المتابعة؟"))return;records=list;persist();render();toast("تم استيراد النسخة الاحتياطية")}catch(e){alert("الملف غير صالح أو ليس نسخة احتياطية لهذه اللوحة.")}finally{ev.target.value=""}};rd.readAsText(f)}
+function printOne(id){let r=records.find(x=>x.id===id);if(!r)return;let w=window.open("","_blank");if(!w){alert("يرجى السماح بالنوافذ المنبثقة للطباعة.");return}w.document.write(`<html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>تقرير سجل تجاري</title><style>body{font-family:Tahoma,Arial;padding:35px;color:#172b4d}h1{font-size:23px}table{width:100%;border-collapse:collapse;margin-top:20px}td{border:1px solid #ccd5e0;padding:12px;vertical-align:top}td:first-child{background:#f4f7fb;font-weight:bold;width:28%}.note{white-space:pre-line;line-height:1.8}</style></head><body><h1>تقرير السجل التجاري</h1><table>${[["اسم الشركة",r.name],["الرقم الوطني الموحد",r.unified],["نوع الكيان",r.entityType],["نوع الشركة",r.companyType],["صفة الشركة",r.companyRole],["صفة المستخدم",r.userRole],["نوع السجل",r.recordType],["الحالة",r.status],["تاريخ القيد",fmt(r.registrationDate)],["تاريخ التأكيد السنوي / الانتهاء",fmt(r.expiryDate)],["الملاحظات والمتطلبات",r.notes||"لا توجد"],["الملفات", (r.files||[]).map(f=>f.name).join("، ")||"لا توجد"]].map(x=>`<tr><td>${escapeHtml(x[0])}</td><td class="${x[0].includes('ملاحظات')?'note':''}">${escapeHtml(x[1])}</td></tr>`).join("")}</table><p>تاريخ طباعة التقرير: ${new Date().toLocaleDateString("ar-SA")}</p><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close()}
+render();
+</script>
+</body>
+</html>
