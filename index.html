@@ -142,5 +142,26 @@ function importData(ev){let f=ev.target.files[0];if(!f)return;let rd=new FileRea
 function printOne(id){let r=records.find(x=>x.id===id);if(!r)return;let w=window.open("","_blank");if(!w){alert("يرجى السماح بالنوافذ المنبثقة للطباعة.");return}w.document.write(`<html lang="ar" dir="rtl"><head><meta charset="utf-8"><title>تقرير سجل تجاري</title><style>body{font-family:Tahoma,Arial;padding:35px;color:#172b4d}h1{font-size:23px}table{width:100%;border-collapse:collapse;margin-top:20px}td{border:1px solid #ccd5e0;padding:12px;vertical-align:top}td:first-child{background:#f4f7fb;font-weight:bold;width:28%}.note{white-space:pre-line;line-height:1.8}</style></head><body><h1>تقرير السجل التجاري</h1><table>${[["اسم الشركة",r.name],["الرقم الوطني الموحد",r.unified],["نوع الكيان",r.entityType],["نوع الشركة",r.companyType],["صفة الشركة",r.companyRole],["صفة المستخدم",r.userRole],["نوع السجل",r.recordType],["الحالة",r.status],["تاريخ القيد",fmt(r.registrationDate)],["تاريخ التأكيد السنوي / الانتهاء",fmt(r.expiryDate)],["الملاحظات والمتطلبات",r.notes||"لا توجد"],["الملفات", (r.files||[]).map(f=>f.name).join("، ")||"لا توجد"]].map(x=>`<tr><td>${escapeHtml(x[0])}</td><td class="${x[0].includes('ملاحظات')?'note':''}">${escapeHtml(x[1])}</td></tr>`).join("")}</table><p>تاريخ طباعة التقرير: ${new Date().toLocaleDateString("ar-SA")}</p><script>window.onload=()=>window.print()<\/script></body></html>`);w.document.close()}
 render();
 </script>
+<script>
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZEHQC9zgM3IX6WevgnoLJzBegxYYIWZMp5EHmmVT_w6bMJzshNVr-_x_slp3eplfQdA/exec";
+
+  // دالة إرسال البيانات إلى Google Sheets
+  function sendDataToSheets(data) {
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data)
+    })
+    .then(() => {
+      alert("تم حفظ البيانات وتحديث جدول Google Sheets بنجاح!");
+    })
+    .catch(error => {
+      console.error("خطأ في إرسال البيانات:", error);
+    });
+  }
+</script>
 </body>
 </html>
